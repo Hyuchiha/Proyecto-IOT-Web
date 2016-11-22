@@ -14,8 +14,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'parking_id_parking')->textInput() ?>
 
-    <?= $form->field($model, 'plaque_id_plaque')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'create_at')->textInput() ?>
 
     <?= $form->field($model, 'update_at')->textInput() ?>

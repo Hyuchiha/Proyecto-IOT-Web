@@ -32,7 +32,8 @@ class Parking extends \yii\db\ActiveRecord
     {
         return [
             [['id_parking'], 'required'],
-            [['id_parking', 'current_status'], 'integer'],
+            [['id_parking'], 'integer'],
+            [['current_status'], 'string', 'max' => 15],
             [['min_time', 'max_time', 'average_time'], 'safe'],
         ];
     }

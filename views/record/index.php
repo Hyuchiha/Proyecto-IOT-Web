@@ -25,7 +25,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id_record',
             'parking_id_parking',
-            'plaque_id_plaque',
             'create_at',
             'update_at',
             // 'time_parking',

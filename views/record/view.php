@@ -15,8 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id_record' => $model->id_record, 'parking_id_parking' => $model->parking_id_parking, 'plaque_id_plaque' => $model->plaque_id_plaque], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id_record' => $model->id_record, 'parking_id_parking' => $model->parking_id_parking, 'plaque_id_plaque' => $model->plaque_id_plaque], [
+        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id_record' => $model->id_record, 'parking_id_parking' => $model->parking_id_parking], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id_record' => $model->id_record, 'parking_id_parking' => $model->parking_id_parking], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
@@ -30,7 +30,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id_record',
             'parking_id_parking',
-            'plaque_id_plaque',
             'create_at',
             'update_at',
             'time_parking',

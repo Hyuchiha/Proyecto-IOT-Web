@@ -41,7 +41,6 @@ AppAsset::register($this);
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'Parking', 'url' => ['/parking/index'], 'visible' => !Yii::$app->user->isGuest],
             ['label' => 'Record', 'url' => ['/record/index'], 'visible' => !Yii::$app->user->isGuest],
-            ['label' => 'Plaques', 'url' => ['/plaque/index'], 'visible' => !Yii::$app->user->isGuest],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (

@@ -63,8 +63,9 @@ class ParkingSearch extends Parking
             'min_time' => $this->min_time,
             'max_time' => $this->max_time,
             'average_time' => $this->average_time,
-            'current_status' => $this->current_status,
         ]);
+        
+        $query->andFilterWhere(['like', 'current_status', $this->current_status]);
 
         return $dataProvider;
     }

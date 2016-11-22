@@ -19,7 +19,7 @@ class RecordSearch extends Record
     {
         return [
             [['id_record', 'parking_id_parking'], 'integer'],
-            [['plaque_id_plaque', 'create_at', 'update_at', 'time_parking'], 'safe'],
+            [['create_at', 'update_at', 'time_parking'], 'safe'],
         ];
     }
 
@@ -68,8 +68,6 @@ class RecordSearch extends Record
             'update_at' => $this->update_at,
             'time_parking' => $this->time_parking,
         ]);
-
-        $query->andFilterWhere(['like', 'plaque_id_plaque', $this->plaque_id_plaque]);
 
         return $dataProvider;
     }

@@ -19,8 +19,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'parking_id_parking') ?>
 
-    <?= $form->field($model, 'plaque_id_plaque') ?>
-
     <?= $form->field($model, 'create_at') ?>
 
     <?= $form->field($model, 'update_at') ?>
