@@ -19,8 +19,7 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title>SmartParking - <?= Html::encode($this->title) ?></title>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <script src="../js/Chart.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">    
     <?php $this->head() ?>
 </head>
 <body>
@@ -30,7 +29,6 @@ AppAsset::register($this);
     <?php
     NavBar::begin([
         'brandLabel' => 'SmartParking',
-        'brandUrl' => Yii::$app->getUrlManager()->createURL(['site/index']),
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],

@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use Yii;
+use yii\helpers\Url;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -70,7 +71,7 @@ class SiteController extends Controller
             return $this->render('index');
         }
         
-        return $this->redirect('dashboard');
+        return $this->redirect(Url::to(['site/dashboard']));
     }
 
     /**
@@ -81,12 +82,12 @@ class SiteController extends Controller
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
-            return $this->redirect('dashboard');
+            return $this->redirect(Url::to(['site/dashboard']));
         }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->redirect('dashboard');
+            return $this->redirect(Url::to(['site/dashboard']));
         }
         return $this->render('login', [
             'model' => $model,
@@ -146,5 +147,14 @@ class SiteController extends Controller
         return $this->render('dashboard', [
             'model' => $model,
         ]);
+    }
+    
+    public function actionAjaxrequest()
+    {
+        $model = new Parking();
+        $model = $model->getParkings();
+        
+        $allParkings = $this->renderParcial('dashboard', $model, true);
+        echo CJSON::encode($allParkings);
     }
 }

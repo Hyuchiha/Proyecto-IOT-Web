@@ -48,13 +48,12 @@ class RecordController extends Controller
      * Displays a single Record model.
      * @param string $id_record
      * @param integer $parking_id_parking
-     * @param string $plaque_id_plaque
      * @return mixed
      */
-    public function actionView($id_record, $parking_id_parking, $plaque_id_plaque)
+    public function actionView($id_record, $parking_id_parking)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id_record, $parking_id_parking, $plaque_id_plaque),
+            'model' => $this->findModel($id_record, $parking_id_parking),
         ]);
     }
 
@@ -68,7 +67,7 @@ class RecordController extends Controller
         $model = new Record();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id_record' => $model->id_record, 'parking_id_parking' => $model->parking_id_parking, 'plaque_id_plaque' => $model->plaque_id_plaque]);
+            return $this->redirect(['view', 'id_record' => $model->id_record, 'parking_id_parking' => $model->parking_id_parking);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -81,15 +80,14 @@ class RecordController extends Controller
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param string $id_record
      * @param integer $parking_id_parking
-     * @param string $plaque_id_plaque
      * @return mixed
      */
-    public function actionUpdate($id_record, $parking_id_parking, $plaque_id_plaque)
+    public function actionUpdate($id_record, $parking_id_parking)
     {
-        $model = $this->findModel($id_record, $parking_id_parking, $plaque_id_plaque);
+        $model = $this->findModel($id_record, $parking_id_parking);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id_record' => $model->id_record, 'parking_id_parking' => $model->parking_id_parking, 'plaque_id_plaque' => $model->plaque_id_plaque]);
+            return $this->redirect(['view', 'id_record' => $model->id_record, 'parking_id_parking' => $model->parking_id_parking);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -102,12 +100,11 @@ class RecordController extends Controller
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param string $id_record
      * @param integer $parking_id_parking
-     * @param string $plaque_id_plaque
      * @return mixed
      */
-    public function actionDelete($id_record, $parking_id_parking, $plaque_id_plaque)
+    public function actionDelete($id_record, $parking_id_parking)
     {
-        $this->findModel($id_record, $parking_id_parking, $plaque_id_plaque)->delete();
+        $this->findModel($id_record, $parking_id_parking)->delete();
 
         return $this->redirect(['index']);
     }
@@ -117,13 +114,12 @@ class RecordController extends Controller
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param string $id_record
      * @param integer $parking_id_parking
-     * @param string $plaque_id_plaque
      * @return Record the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id_record, $parking_id_parking, $plaque_id_plaque)
+    protected function findModel($id_record, $parking_id_parking)
     {
-        if (($model = Record::findOne(['id_record' => $id_record, 'parking_id_parking' => $parking_id_parking, 'plaque_id_plaque' => $plaque_id_plaque])) !== null) {
+        if (($model = Record::findOne(['id_record' => $id_record, 'parking_id_parking' => $parking_id_parking])) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
