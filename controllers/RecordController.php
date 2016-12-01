@@ -67,7 +67,7 @@ class RecordController extends Controller
         $model = new Record();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id_record' => $model->id_record, 'parking_id_parking' => $model->parking_id_parking);
+            return $this->redirect(['view', 'id_record' => $model->id_record, 'parking_id_parking' => $model->parking_id_parking]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -87,7 +87,7 @@ class RecordController extends Controller
         $model = $this->findModel($id_record, $parking_id_parking);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id_record' => $model->id_record, 'parking_id_parking' => $model->parking_id_parking);
+            return $this->redirect(['view', 'id_record' => $model->id_record, 'parking_id_parking' => $model->parking_id_parking]);
         } else {
             return $this->render('update', [
                 'model' => $model,

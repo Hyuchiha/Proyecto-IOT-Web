@@ -6,6 +6,7 @@ use Yii;
 use yii\helpers\Url;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use yii\helpers\Json;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
@@ -141,20 +142,33 @@ class SiteController extends Controller
      */
     public function actionDashboard()
     {
-        $model = new Parking();
-        $model = $model->getParkings();
+        $parkings = new Parking();
+        $parkings = $parkings->getParkings();
         
         return $this->render('dashboard', [
-            'model' => $model,
+            'parkings' => $parkings,
         ]);
     }
     
-    public function actionAjaxrequest()
+    public function actionGraphic($hour, $date)
     {
-        $model = new Parking();
-        $model = $model->getParkings();
-        
-        $allParkings = $this->renderParcial('dashboard', $model, true);
-        echo CJSON::encode($allParkings);
+        $moment = $date + " " + $hour + ":00";
+        $parkings = new Parking();
+        $parkings = $parkings->getParkings();
+        echo Json::encode($moment);
+    }
+    
+    public function actionParkings()
+    {
+        $parkings = new Parking();
+        $parkings = $parkings->getParkings();
+        $statusParkings = array();
+        foreach ($parkings as $parking) {
+            if (strcmp($parking['current_status'], 'Available') == 0)
+                $statusParkings[$parking['id_parking']] = 'success';
+            else
+                $statusParkings[$parking['id_parking']] = 'danger';
+        }
+        echo Json::encode($statusParkings);
     }
 }

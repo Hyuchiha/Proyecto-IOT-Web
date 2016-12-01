@@ -48,7 +48,9 @@ class RecordSearch extends Record
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'sort' => array(
-                'defaultOrder' => 'member_id DESC',
+                'defaultOrder' => [
+                    'create_at' => SORT_DESC,
+                ],
             ),
         ]);
 
@@ -59,7 +61,7 @@ class RecordSearch extends Record
             // $query->where('0=1');
             return $dataProvider;
         }
-
+        
         // grid filtering conditions
         $query->andFilterWhere([
             'id_record' => $this->id_record,
@@ -68,7 +70,7 @@ class RecordSearch extends Record
             'update_at' => $this->update_at,
             'time_parking' => $this->time_parking,
         ]);
-
+        
         return $dataProvider;
     }
 }

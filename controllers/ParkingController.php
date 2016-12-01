@@ -54,7 +54,7 @@ class ParkingController extends Controller
     {
         $queryParams["RecordSearch"]["parking_id_parking"] = $id;
         $searchModel = new RecordSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search($queryParams);
         
         return $this->render('view', [
             'searchModel' => $searchModel,
