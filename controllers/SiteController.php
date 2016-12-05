@@ -193,6 +193,7 @@ class SiteController extends Controller
                 "maxTime" => $maxTime,
             ];
         }
+        $regCreated = 0;
         for($i = 0; $i < count($records); $i++) {
             $record = $records[$i];
             $currentRecordDateTime = explode(' ', $record['create_at']);
@@ -213,11 +214,11 @@ class SiteController extends Controller
                 //$respond[$currentHour] = $now;
                 $lastRecordTime = (int)$currentRecordTime[0];
                 $currentHour = (int)$currentRecordTime[0];
-                $i--;
+                $i--;$regCreated++;
             }
-            if((int)$currentRecordTime[0] == $hr) {
+            if((int)$currentRecordTime[0] != $hr) {
                 $now["aveTime"] = $aveTime / $tot;
-                $respond = $this->fillRespond($respond,$now,$currentHour,$hr);
+                $respond = $this->fillRespond($respond,$now,$currentHour,$hr+1);
             }
         }
         
@@ -238,6 +239,13 @@ class SiteController extends Controller
 
     private function aveTime($aveTime, $recordTime){
         $average = $aveTime + $recordTime;
+        $entero = intval($average);
+        $decimal = ($average-intval($average));
+        if($decimal >= .60){
+            $decimal = $decimal - .60;
+            $entero++;
+            $average = $entero + $decimal;
+        }
         return $average;
     }
     

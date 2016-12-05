@@ -99,7 +99,7 @@ $(function(){
             areaChartData.datasets[0].data = minData;
             areaChartData.datasets[1].data = aveData;
             areaChartData.datasets[2].data = maxData;
-            alert(data);
+            //alert(data);
         });
         lineChartOptions.datasetFill = false;
         lineChart.Line(areaChartData, lineChartOptions);
