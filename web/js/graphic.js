@@ -1,10 +1,10 @@
 $(function(){
-    var minTimes = new Array(24);
-    var aveTimes = new Array(24);
-    var maxTimes = new Array(24);
-    var indexTimes = 0;
+    var minTimes = new Array();
+    var aveTimes = new Array();
+    var maxTimes = new Array();
+    var fisrtTry = 0;
     var areaChartData = {
-        labels:["00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"],
+        labels:["00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00", "24:00"],
         datasets: [
             {
                 label: "Minimum Time",
@@ -14,7 +14,7 @@ $(function(){
                 pointStrokeColor: "#c1c7d1",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(255, 255, 51, 1)",
-                data: [46, 82, 37, 19, 68, 24, 55]
+                data: []//, 37, 19, 68, 24, 55]
             },
             {
                 label: "Average Time",
@@ -24,7 +24,7 @@ $(function(){
                 pointStrokeColor: "rgba(100, 128, 233, 1)",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(100, 128, 233, 1)",
-                data: [28, 48, 40, 19, 86, 27, 90]
+                data: []//, 40, 19, 86, 27, 90]
             },
             {
                 label: "Maximum Time",
@@ -34,7 +34,7 @@ $(function(){
                 pointStrokeColor: "rgba(255, 51, 51, 1)",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(255, 51, 51, 1)",
-                data: [86, 13, 78, 65, 12, 76, 16]
+                data: []//, 78, 65, 12, 76, 16]
             }
         ]
     };
@@ -80,18 +80,32 @@ $(function(){
     var lineChartCanvas = $("#lineChart").get(0).getContext("2d");
     var lineChart = new Chart(lineChartCanvas);
     var lineChartOptions = areaChartOptions;
-    var updateInterval = 50000;
+    var updateInterval = 5000;
 
     function update()
     {
-        var currentDt = new Date();
-        var currentDy = currentDt.getYear() + "-" + currentDt.getMonth() + "-" + currentDt.getDay();
-        $.get('graphic', { hour : currentDt.getHours(), date : currentDy}, function(data){
-
+        /*var currentDy = '2016-11-28';//currentDt.getFullYear() + "-" + currentDt.getMonth() + "-" + currentDt.getDay();
+            var currentHr = '20:00';currentDt.getHours() + ":" + currentDt.getMinutes();*/
+        $.get('graphic', {}, function(data){ //{ hour : currentHr, date : currentDy}
+            var datos = jQuery.parseJSON(data);
+            var minData = areaChartData.datasets[0].data;
+            var aveData = areaChartData.datasets[1].data;
+            var maxData = areaChartData.datasets[2].data;
+            for (var i=0; i<datos.length; i++){
+                minData[i] = datos[i].minTime;
+                aveData[i] = datos[i].aveTime;
+                maxData[i] = datos[i].maxTime;
+            }
+            areaChartData.datasets[0].data = minData;
+            areaChartData.datasets[1].data = aveData;
+            areaChartData.datasets[2].data = maxData;
+            alert(data);
         });
         lineChartOptions.datasetFill = false;
         lineChart.Line(areaChartData, lineChartOptions);
         setTimeout(update, updateInterval);
+        if(fisrtTry == 0)
+            updateInterval = updateInterval * 10;
     }
 
     update();
