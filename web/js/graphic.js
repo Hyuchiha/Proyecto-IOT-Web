@@ -7,7 +7,7 @@ $(function(){
         labels:["00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00", "24:00"],
         datasets: [
             {
-                label: "Minimum Time",
+                label: "Minimum Time (minutes)",
                 fillColor: "rgba(255, 255, 51, 1)",
                 strokeColor: "rgba(255, 255, 51, 0.9)",
                 pointColor: "rgba(255, 255, 51, 1)",
@@ -17,7 +17,7 @@ $(function(){
                 data: []//, 37, 19, 68, 24, 55]
             },
             {
-                label: "Average Time",
+                label: "Average Time (minutes)",
                 fillColor: "rgba(100, 128, 233, 1)",
                 strokeColor: "rgba(100, 128, 233, 0.9)",
                 pointColor: "#3b8bba",
@@ -27,10 +27,10 @@ $(function(){
                 data: []//, 40, 19, 86, 27, 90]
             },
             {
-                label: "Maximum Time",
+                label: "Maximum Time (minutes)",
                 fillColor: "rgba(255, 51, 51, 1)",
                 strokeColor: "rgba(255, 51, 51, 0.9)",
-                pointColor: "#3b8bba",
+                pointColor: "#f00",
                 pointStrokeColor: "rgba(255, 51, 51, 1)",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(255, 51, 51, 1)",
