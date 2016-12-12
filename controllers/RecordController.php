@@ -102,12 +102,12 @@ class RecordController extends Controller
      * @param integer $parking_id_parking
      * @return mixed
      */
-    public function actionDelete($id_record, $parking_id_parking)
+    /*public function actionDelete($id_record, $parking_id_parking)
     {
         $this->findModel($id_record, $parking_id_parking)->delete();
 
         return $this->redirect(['index']);
-    }
+    }*/
 
     /**
      * Finds the Record model based on its primary key value.
