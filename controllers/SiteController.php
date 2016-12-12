@@ -185,12 +185,14 @@ class SiteController extends Controller
             "minTime" => $minTime,
             "aveTime" => $aveTime,
             "maxTime" => $maxTime,
+            "total" => $tot
         ];
         for($h = 0; $h <= $hr; $h++) {
             $respond[$h] = $now = [
                 "minTime" => 0,
                 "aveTime" => $aveTime,
                 "maxTime" => $maxTime,
+                "total" => 0,
             ];
         }
         $regCreated = 0;
@@ -214,6 +216,7 @@ class SiteController extends Controller
                 else
                     $now["aveTime"] = $aveTime;
                 //$respond = $this->fillRespond($respond,$now,$currentHour,(int)$currentRecordTime[0]);
+                $now["total"] = $tot;
                 $respond[$currentHour] = $now;
                 $lastRecordTime = (int)$currentRecordTime[0];
                 $currentHour = (int)$currentRecordTime[0];
@@ -229,6 +232,7 @@ class SiteController extends Controller
                 else
                     $now["aveTime"] = $aveTime;
                 //$respond = $this->fillRespond($respond,$now,$currentHour,$hr+1);
+                $now["total"] = $tot;
                 $respond[$currentHour] = $now;
             }
         }

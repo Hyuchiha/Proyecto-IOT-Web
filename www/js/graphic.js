@@ -91,15 +91,17 @@ $(function(){
             var minData = areaChartData.datasets[0].data;
             var aveData = areaChartData.datasets[1].data;
             var maxData = areaChartData.datasets[2].data;
+            var eleData = "#";
             for (var i=0; i<datos.length; i++){
                 minData[i] = datos[i].minTime;
                 aveData[i] = datos[i].aveTime;
                 maxData[i] = datos[i].maxTime;
+                eleData = "#" + i.toString();
+                $(eleData).text(datos[i].total);
             }
             areaChartData.datasets[0].data = minData;
             areaChartData.datasets[1].data = aveData;
             areaChartData.datasets[2].data = maxData;
-            //alert(data);
         });
         lineChartOptions.datasetFill = false;
         lineChart.Line(areaChartData, lineChartOptions);
