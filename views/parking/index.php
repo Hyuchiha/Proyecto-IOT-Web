@@ -15,9 +15,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a(Yii::t('app', 'Create Parking'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
 <?php Pjax::begin(); ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -29,7 +26,20 @@ $this->params['breadcrumbs'][] = $this->title;
             'average_time',
             'current_status',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'visibleButtons' => [
+                    'view' => function ($model, $key, $index) {
+                        return true;
+                    },
+                    'update' => function ($model, $key, $index) {
+                        return false;
+                    },
+                    'delete' => function ($model, $key, $index) {
+                        return false;
+                    }
+                ]
+            ]
         ],
     ]); ?>
 <?php Pjax::end(); ?></div>

@@ -62,7 +62,7 @@ class RecordController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    /*public function actionCreate()
     {
         $model = new Record();
 
@@ -73,7 +73,7 @@ class RecordController extends Controller
                 'model' => $model,
             ]);
         }
-    }
+    }*/
 
     /**
      * Updates an existing Record model.
@@ -82,7 +82,7 @@ class RecordController extends Controller
      * @param integer $parking_id_parking
      * @return mixed
      */
-    public function actionUpdate($id_record, $parking_id_parking)
+    /*public function actionUpdate($id_record, $parking_id_parking)
     {
         $model = $this->findModel($id_record, $parking_id_parking);
 
@@ -93,7 +93,7 @@ class RecordController extends Controller
                 'model' => $model,
             ]);
         }
-    }
+    }*/
 
     /**
      * Deletes an existing Record model.

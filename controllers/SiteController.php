@@ -113,7 +113,7 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionContact()
+    /*public function actionContact()
     {
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
@@ -124,17 +124,17 @@ class SiteController extends Controller
         return $this->render('contact', [
             'model' => $model,
         ]);
-    }
+    }*/
 
     /**
      * Displays about page.
      *
      * @return string
      */
-    public function actionAbout()
+    /*public function actionAbout()
     {
         return $this->render('about');
-    }
+    }*/
 
     /**
      * Displays dashboard page.
@@ -260,11 +260,11 @@ class SiteController extends Controller
         return $average;
     }
     
-    private function fillRespond($respond, $now, $hour, $limit){
+    /*private function fillRespond($respond, $now, $hour, $limit){
         for(;$hour < $limit; $hour++) {
             $respond[$hour] = $now;
         }
         return $respond;
-    }
+    }*/
     
 }
