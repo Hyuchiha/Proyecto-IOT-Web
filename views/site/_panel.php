@@ -8,7 +8,7 @@ use yii\helpers\Url;
 <div class="row">
     <div class="col-md-8">
         <div class="panel panel-primary">
-            <div class="panel-heading">Parking Time</div>
+            <div class="panel-heading">Parking Time per Hour of Today</div>
             <div class="panel-body">
                 <canvas id="lineChart" style="height:250px"></canvas>
             </div>

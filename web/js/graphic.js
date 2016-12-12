@@ -7,34 +7,34 @@ $(function(){
         labels:["00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00", "24:00"],
         datasets: [
             {
-                label: "Minimum Time (minutes)",
+                label: "Minimum (minutes)",
                 fillColor: "rgba(255, 255, 51, 1)",
                 strokeColor: "rgba(255, 255, 51, 0.9)",
                 pointColor: "rgba(255, 255, 51, 1)",
                 pointStrokeColor: "#c1c7d1",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(255, 255, 51, 1)",
-                data: []//, 37, 19, 68, 24, 55]
+                data: []
             },
             {
-                label: "Average Time (minutes)",
+                label: "Average (minutes)",
                 fillColor: "rgba(100, 128, 233, 1)",
                 strokeColor: "rgba(100, 128, 233, 0.9)",
                 pointColor: "#3b8bba",
                 pointStrokeColor: "rgba(100, 128, 233, 1)",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(100, 128, 233, 1)",
-                data: []//, 40, 19, 86, 27, 90]
+                data: []
             },
             {
-                label: "Maximum Time (minutes)",
+                label: "Maximum (minutes)",
                 fillColor: "rgba(255, 51, 51, 1)",
                 strokeColor: "rgba(255, 51, 51, 0.9)",
                 pointColor: "#f00",
                 pointStrokeColor: "rgba(255, 51, 51, 1)",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(255, 51, 51, 1)",
-                data: []//, 78, 65, 12, 76, 16]
+                data: []
             }
         ]
     };
@@ -62,7 +62,7 @@ $(function(){
         //Number - Pixel width of point dot stroke
         pointDotStrokeWidth: 1,
         //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
-        pointHitDetectionRadius: 20,
+        pointHitDetectionRadius: 24,
         //Boolean - Whether to show a stroke for datasets
         datasetStroke: true,
         //Number - Pixel width of dataset stroke

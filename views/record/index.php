@@ -22,8 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-    
-            'parking_id_parking',
+        	'parking_id_parking',
             'create_at',
             'update_at',
             'time_parking',

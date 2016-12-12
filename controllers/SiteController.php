@@ -199,7 +199,7 @@ class SiteController extends Controller
             $currentRecordDateTime = explode(' ', $record['create_at']);
             $currentRecordTime = explode(':', $currentRecordDateTime[1]);
             $time = explode(':', $record['time_parking']);
-            $recordTime = (float)$time[1] + ((float)$time[2] * 0.01);
+            $recordTime = ((float)$time[0] * 60) + (float)$time[1] + ((float)$time[2] * 0.01);
             if((int)$currentRecordTime[0] == $lastRecordTime) {
                 $minTime = $this->minTime($minTime, $recordTime);
                 $maxTime = $this->maxTime($maxTime, $recordTime);
@@ -209,16 +209,27 @@ class SiteController extends Controller
                 $now["maxTime"] = $maxTime;
                 $tot++;
             }else {
-                $now["aveTime"] = $aveTime / $tot;
-                $respond = $this->fillRespond($respond,$now,$currentHour,(int)$currentRecordTime[0]);
-                //$respond[$currentHour] = $now;
+                if($tot != 0)
+                    $now["aveTime"] = $aveTime / $tot;
+                else
+                    $now["aveTime"] = $aveTime;
+                //$respond = $this->fillRespond($respond,$now,$currentHour,(int)$currentRecordTime[0]);
+                $respond[$currentHour] = $now;
                 $lastRecordTime = (int)$currentRecordTime[0];
                 $currentHour = (int)$currentRecordTime[0];
+                $minTime = 10000.0;// MM.SS
+                $aveTime = 0.0;// MM.SS
+                $maxTime = 0.0;// MM.SS
+                $tot = 0;
                 $i--;$regCreated++;
             }
             if((int)$currentRecordTime[0] != $hr) {
-                $now["aveTime"] = $aveTime / $tot;
-                $respond = $this->fillRespond($respond,$now,$currentHour,$hr+1);
+                if($tot != 0)
+                    $now["aveTime"] = $aveTime / $tot;
+                else
+                    $now["aveTime"] = $aveTime;
+                //$respond = $this->fillRespond($respond,$now,$currentHour,$hr+1);
+                $respond[$currentHour] = $now;
             }
         }
         
