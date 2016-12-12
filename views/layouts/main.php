@@ -39,8 +39,6 @@ AppAsset::register($this);
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'Parking', 'url' => ['/parking/index'], 'visible' => !Yii::$app->user->isGuest],
             ['label' => 'Record', 'url' => ['/record/index'], 'visible' => !Yii::$app->user->isGuest],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
             ['label' => 'Register', 'url' => ['/user/create'], 'visible' => Yii::$app->user->isGuest],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
@@ -69,9 +67,19 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">IoT <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <div class="row">
+            <div class="col-sm-6">
+                <h5>SmartParking</h5>
+                <p>© 2016 IoT</p>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-md-12 hidden-xs text-right">
+                        <a href="https://github.com/Hyuchiha/Proyecto-IOT-Web"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </footer>
 
