@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 <?php 
     //FLOT CHARTS
-    $this->registerJsFile(Yii::$app->homeUrl.'/js/Chart.min.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
-    $this->registerJsFile(Yii::$app->homeUrl.'/js/graphic.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
-    $this->registerJsFile(Yii::$app->homeUrl.'/js/parkings.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
+    $this->registerJsFile('@web/js/Chart.min.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
+    $this->registerJsFile('@web/js/graphic.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
+    $this->registerJsFile('@web/js/parkings.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
 ?>
