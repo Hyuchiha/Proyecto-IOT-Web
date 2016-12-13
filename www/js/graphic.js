@@ -1,3 +1,7 @@
+/*
+ * Este script se encaga de crear la gráfica del Dashboard, así como de solicitar al servidor
+ * web cada 5 min en busca de datos nuevos y actualizar la gráfica
+ */
 $(function(){
     var minTimes = new Array();
     var aveTimes = new Array();

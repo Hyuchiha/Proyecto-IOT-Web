@@ -10,7 +10,9 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * RecordController implements the CRUD actions for Record model.
+ * RecordController implementa acciones CRUD para el modelo Record.
+ * Se deshabilitaron las acciones Create, Update y Delete, ya que el sistema es el único
+ * que debe crear y actualizar registros, y nadie debe eliminarlos
  */
 class RecordController extends Controller
 {

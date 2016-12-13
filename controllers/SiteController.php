@@ -13,6 +13,11 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Parking;
 
+/**
+ * SiteController implementa acciones Login, Logout, Index y Dashboard.
+ * Las acciones Parkings y Graphics se utiizan para mostrar la información en tiempo real
+ * Las acciones MinTime, MaxTime y AveTime se usan con Graphics para el cálculo de métricas
+ */
 class SiteController extends Controller
 {
     /**

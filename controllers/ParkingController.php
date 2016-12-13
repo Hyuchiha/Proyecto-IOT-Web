@@ -11,7 +11,9 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ParkingController implements the CRUD actions for Parking model.
+ * ParkingController implementa acciones CRUD para el modelo Parking.
+ * Se deshabilitaron las acciones Create, Update y Delete, ya que el sistema es el único
+ * que debe crear y actualizar registros, y nadie debe eliminarlos
  */
 class ParkingController extends Controller
 {
