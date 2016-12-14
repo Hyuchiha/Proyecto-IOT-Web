@@ -27,27 +27,27 @@ class SiteController extends Controller
     {
         return [
             'access' => [
-            'class' => AccessControl::className(),
-            'only' => ['logout'],
-            'rules' => [
-            [
-            'actions' => ['logout'],
-            'allow' => true,
-            'roles' => ['@'],
-        ],
-            [
-            'actions' => ['dashboard'],
-            'allow' => true,
-            'roles' => ['@'],
-        ],
-        ],
-        ],
+                'class' => AccessControl::className(),
+                'only' => ['logout'],
+                'rules' => [
+                    [
+                        'actions' => ['logout'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                    [
+                        'actions' => ['dashboard'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
-            'class' => VerbFilter::className(),
-            'actions' => [
-            'logout' => ['post'],
-        ],
-        ],
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'logout' => ['post'],
+                ],
+            ],
         ];
     }
 
